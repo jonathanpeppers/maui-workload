@@ -1,0 +1,17 @@
+{
+    "version": 6,
+    "workloads": {
+      "microsoft-maui-sdk-full": {
+        "description": "Maui SDK",
+        "packs": [
+          "Microsoft.Maui.Sdk"
+        ]
+      }
+    },
+    "packs": {
+      "Microsoft.Maui.Sdk": {
+        "kind": "sdk",
+        "version": "0.1.0-alpha1"
+      }
+    }
+  }

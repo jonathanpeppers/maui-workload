@@ -1,0 +1,3 @@
+<Project>
+  <Import Condition=" '$(UseMaui)' == 'true' " Project="Sdk.targets" Sdk="Microsoft.Maui.Sdk" />
+</Project>
