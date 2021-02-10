@@ -39,6 +39,12 @@ Special files:
   `$(UseMaui)` is `true`. Note that this is imported by *all* .NET 6
   project types -- *even non-mobile ones*.
 
+For further details about .NET Workloads, see these .NET design docs:
+
+* [.NET Optional SDK Workloads](https://github.com/dotnet/designs/blob/main/accepted/2020/workloads/workloads.md)
+* [Workload Resolvers](https://github.com/dotnet/designs/blob/main/accepted/2020/workloads/workload-resolvers.md)
+* [Workload Manifests](https://github.com/dotnet/designs/pull/120/files)
+
 ## Building
 
 To build this repo:
