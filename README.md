@@ -7,6 +7,7 @@ Explanation of projects:
 
 * `DotNet.Toolchain` - creates a .NET 6 installation in `bin`
 * `Maui.Dependencies` - installs the Android/iOS workloads & SDK packs
+* `Microsoft.NET.Workload.iOS` - temporarily recreated this package: it is missing from a feed
 * `Microsoft.NET.Workload.Maui` - configures Maui as a "workload"
 * `Microsoft.Maui.Sdk` - Maui's SDK pack
 
@@ -78,8 +79,6 @@ Next, you can build the `samples` using the local `dotnet`:
 ```bash
 ./bin/dotnet/dotnet build samples/samples.sln
 ```
-
-*TODO: iOS is not working yet.*
 
 ## TODO: How to use IDEs?
 

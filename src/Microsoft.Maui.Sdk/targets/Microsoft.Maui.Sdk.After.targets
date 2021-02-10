@@ -5,7 +5,7 @@
     <DotNetPackageVersion Condition=" '$(DotNetPackageVersion)' == '' ">5.0.0</DotNetPackageVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="$(XamarinFormsVersion)" />
+    <PackageReference Include="Xamarin.Forms" Version="$(XamarinFormsVersion)" GeneratePathProperty="true" />
     <!--
       The linker resolves some assembly references too eagerly, and
       fails when it can't find them, so work around this by referencing
@@ -19,4 +19,6 @@
     <PackageReference Include="System.Security.Permissions"           Version="$(DotNetPackageVersion)" />
     <PackageReference Include="System.Threading.AccessControl"        Version="$(DotNetPackageVersion)" />
   </ItemGroup>
+
+  <Import Project="Microsoft.Maui.iOS.targets" Condition=" '$(TargetPlatformIdentifier)' == 'ios' " />
 </Project>
