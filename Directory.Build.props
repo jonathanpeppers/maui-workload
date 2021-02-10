@@ -7,6 +7,7 @@
     <DotNetVersionBand>6.0.100</DotNetVersionBand>
     <DotNetVersion>$(DotNetVersionBand)-preview.1.21103.13</DotNetVersion>
     <MicrosoftAndroidVersion>11.0.200-ci.master.85</MicrosoftAndroidVersion>
+    <MicrosoftiOSVersion>14.3.100-ci.main.1079</MicrosoftiOSVersion>
     <!--Paths-->
     <DotNetPacksDirectory>$(DotNetDirectory)packs/</DotNetPacksDirectory>
     <DotNetSdkManifestsDirectory>$(DotNetDirectory)sdk-manifests/$(DotNetVersionBand)/</DotNetSdkManifestsDirectory>

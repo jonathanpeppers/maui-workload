@@ -4,5 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageDownload Include="Microsoft.NET.Workload.Android" Version="[$(MicrosoftAndroidVersion)]" />
+    <!-- TODO: missing from feed -->
+    <!-- <PackageDownload Include="Microsoft.NET.Workload.iOS"     Version="[$(MicrosoftiOSVersion)]" /> -->
   </ItemGroup>
 </Project>

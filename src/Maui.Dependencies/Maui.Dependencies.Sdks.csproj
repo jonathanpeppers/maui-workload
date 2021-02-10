@@ -7,5 +7,7 @@
     <PackageDownload Include="Microsoft.Android.Sdk.win-x64"    Version="[$(MicrosoftAndroidVersion)]" Condition="$([MSBuild]::IsOSPlatform('windows'))" />
     <PackageDownload Include="Microsoft.Android.Sdk.osx-x64"    Version="[$(MicrosoftAndroidVersion)]" Condition="$([MSBuild]::IsOSPlatform('osx'))" />
     <PackageDownload Include="Microsoft.Android.Sdk.BundleTool" Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Ref" Version="[$(MicrosoftiOSVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Sdk" Version="[$(MicrosoftiOSVersion)]" />
   </ItemGroup>
 </Project>
