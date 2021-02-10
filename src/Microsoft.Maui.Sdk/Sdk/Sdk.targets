@@ -1,5 +1,7 @@
 <Project>
   <PropertyGroup>
     <AfterMicrosoftNETSdkTargets>$(AfterMicrosoftNETSdkTargets);$(MSBuildThisFileDirectory)../targets/Microsoft.Maui.Sdk.After.targets</AfterMicrosoftNETSdkTargets>
+    <!--NOTE: the System.IO.Ports @(PackageReference) triggers this-->
+    <NoWarn>$(NoWarn);XA4301</NoWarn>
   </PropertyGroup>
 </Project>

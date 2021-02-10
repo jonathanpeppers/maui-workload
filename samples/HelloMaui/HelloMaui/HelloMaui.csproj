@@ -4,7 +4,4 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <UseMaui>true</UseMaui>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
-  </ItemGroup>
 </Project>

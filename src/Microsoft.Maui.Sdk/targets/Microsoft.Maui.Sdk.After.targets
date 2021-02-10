@@ -1,5 +1,22 @@
 <Project>
   <PropertyGroup>
     <EnableDefaultMauiItems Condition=" '$(EnableDefaultMauiItems)' == '' ">$(EnableDefaultItems)</EnableDefaultMauiItems>
+    <XamarinFormsVersion Condition=" '$(XamarinFormsVersion)' == '' ">4.8.0.1364</XamarinFormsVersion>
+    <DotNetPackageVersion Condition=" '$(DotNetPackageVersion)' == '' ">5.0.0</DotNetPackageVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="$(XamarinFormsVersion)" />
+    <!--
+      The linker resolves some assembly references too eagerly, and
+      fails when it can't find them, so work around this by referencing
+      the missing assemblies.
+      See: https://github.com/mono/linker/issues/1139
+    -->
+    <PackageReference Include="System.CodeDom"                        Version="$(DotNetPackageVersion)" />
+    <PackageReference Include="System.Diagnostics.EventLog"           Version="$(DotNetPackageVersion)" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="$(DotNetPackageVersion)" />
+    <PackageReference Include="System.IO.Ports"                       Version="$(DotNetPackageVersion)" />
+    <PackageReference Include="System.Security.Permissions"           Version="$(DotNetPackageVersion)" />
+    <PackageReference Include="System.Threading.AccessControl"        Version="$(DotNetPackageVersion)" />
+  </ItemGroup>
 </Project>

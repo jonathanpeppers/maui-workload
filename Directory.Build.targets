@@ -3,7 +3,7 @@
   <PropertyGroup Condition=" '$(PackageId)' != '' ">
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDependencyFile>false</GenerateDependencyFile>
-    <PackageOutputPath>$(MSBuildThisFileDirectory)bin</PackageOutputPath>
+    <PackageOutputPath>$(MauiOutputPath)</PackageOutputPath>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
   <ItemGroup Condition=" '$(PackageId)' != '' ">
