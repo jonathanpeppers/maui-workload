@@ -7,8 +7,8 @@
     <MicrosoftAndroidVersion>11.0.200-ci.master.85</MicrosoftAndroidVersion>
     <MicrosoftiOSVersion>14.3.100-ci.main.1079</MicrosoftiOSVersion>
     <!-- Paths -->
-    <MauiToolchainDirectory>$([MSBuild]::EnsureTrailingSlash($(USERPROFILE)))maui-toolchain/</MauiToolchainDirectory>
-    <DotNetDirectory>$(MauiToolchainDirectory)dotnet/</DotNetDirectory>
+    <MauiOutputPath>$(MSBuildThisFileDirectory)bin/</MauiOutputPath>
+    <DotNetDirectory>$(MauiOutputPath)dotnet/</DotNetDirectory>
     <DotNetToolPath>$(DotNetDirectory)dotnet</DotNetToolPath>
     <DotNetPacksDirectory>$(DotNetDirectory)packs/</DotNetPacksDirectory>
     <DotNetSdkManifestsDirectory>$(DotNetDirectory)sdk-manifests/$(DotNetVersionBand)/</DotNetSdkManifestsDirectory>
@@ -17,14 +17,14 @@
   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('windows'))">
     <DotNetInstallScriptUrl>https://dot.net/v1/dotnet-install.ps1</DotNetInstallScriptUrl>
     <DotNetInstallScriptName>dotnet-install.ps1</DotNetInstallScriptName>
-    <DotNetInstallScriptPath>$(MauiToolchainDirectory)$(DotNetInstallScriptName)</DotNetInstallScriptPath>
+    <DotNetInstallScriptPath>$(MauiOutputPath)$(DotNetInstallScriptName)</DotNetInstallScriptPath>
     <DotNetInstallCommand>&amp; '$(DotNetInstallScriptPath)' -Version $(DotNetVersion) -InstallDir '$(DotNetDirectory)' -Verbose</DotNetInstallCommand>
     <DotNetInstallCommand>powershell -Command &quot;$(DotNetInstallCommand)&quot;</DotNetInstallCommand>
   </PropertyGroup>
   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('osx'))">
     <DotNetInstallScriptUrl>https://dot.net/v1/dotnet-install.sh</DotNetInstallScriptUrl>
     <DotNetInstallScriptName>dotnet-install.sh</DotNetInstallScriptName>
-    <DotNetInstallScriptPath>$(MauiToolchainDirectory)$(DotNetInstallScriptName)</DotNetInstallScriptPath>
+    <DotNetInstallScriptPath>$(MauiOutputPath)$(DotNetInstallScriptName)</DotNetInstallScriptPath>
     <DotNetInstallCommand>sh '$(DotNetInstallScriptPath)' --version $(DotNetVersion) --install-dir '$(DotNetDirectory)' --verbose</DotNetInstallCommand>
   </PropertyGroup>
 </Project>

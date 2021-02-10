@@ -16,7 +16,7 @@
       Outputs="$(DotNetInstallScriptPath)">
     <DownloadFile
         SourceUrl="$(DotNetInstallScriptUrl)"
-        DestinationFolder="$(MauiToolchainDirectory)"
+        DestinationFolder="$(MauiOutputPath)"
         DestinationFileName="$(DotNetInstallScriptName)"
     />
   </Target>

@@ -3,6 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>$(MSBuildThisFileName)</PackageId>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>$(DotNetPacksDirectory)$(PackageId)/$(PackageVersion)</OutputPath>
+    <OutputPath>$(DotNetPacksDirectory)$(PackageId)/$(PackageVersion)/</OutputPath>
   </PropertyGroup>
 </Project>
