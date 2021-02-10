@@ -12,7 +12,7 @@
     <DotNetToolPath>$(DotNetDirectory)dotnet</DotNetToolPath>
     <DotNetPacksDirectory>$(DotNetDirectory)packs/</DotNetPacksDirectory>
     <DotNetSdkManifestsDirectory>$(DotNetDirectory)sdk-manifests/$(DotNetVersionBand)/</DotNetSdkManifestsDirectory>
-    <DotNetSentinelPath>$(DotNetDirectory)sdk/$(DotNetVersion)/EnableWorkloadResolvers.sentinel</DotNetSentinelPath>
+    <DotNetSentinelPath>$(DotNetDirectory)sdk/$(DotNetVersion)/EnableWorkloadResolver.sentinel</DotNetSentinelPath>
   </PropertyGroup>
   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('windows'))">
     <DotNetInstallScriptUrl>https://dot.net/v1/dotnet-install.ps1</DotNetInstallScriptUrl>

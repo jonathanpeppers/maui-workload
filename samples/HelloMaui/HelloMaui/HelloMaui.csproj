@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <UseMaui>true</UseMaui>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
