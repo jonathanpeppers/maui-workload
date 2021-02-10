@@ -2,8 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>$(MSBuildThisFileName)</PackageId>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>$(DotNetSdkManifestsDirectory)$(PackageId)/$(PackageVersion)</OutputPath>
   </PropertyGroup>
-  <ItemGroup>
-    <None Update="@(None)" Pack="true" PackagePath="" />
-  </ItemGroup>
 </Project>

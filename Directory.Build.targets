@@ -1,8 +1,17 @@
 <Project>
-  <PropertyGroup Condition="'$(PackageId)' != ''">
-    <PackageVersion>0.1.0-alpha1</PackageVersion>
+  <!-- Settings for actual NuGet packages -->
+  <PropertyGroup Condition=" '$(PackageId)' != '' ">
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
     <PackageOutputPath>$(MSBuildThisFileDirectory)bin</PackageOutputPath>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
+  <ItemGroup Condition=" '$(PackageId)' != '' ">
+    <None
+        Update="@(None)"
+        CopyToOutputDirectory="PreserveNewest"
+        Pack="true"
+        PackagePath=""
+    />
+  </ItemGroup>
 </Project>

@@ -1,14 +1,15 @@
 <Project>
   <PropertyGroup>
-    <MauiToolchainDirectory>$([MSBuild]::EnsureTrailingSlash($(USERPROFILE)))maui-toolchain/</MauiToolchainDirectory>
-    <DotNetDirectory>$(MauiToolchainDirectory)dotnet/</DotNetDirectory>
-    <DotNetToolPath>$(DotNetDirectory)dotnet</DotNetToolPath>
-    <!--Versions-->
+    <!-- Versions -->
+    <PackageVersion>0.1.0-alpha1</PackageVersion>
     <DotNetVersionBand>6.0.100</DotNetVersionBand>
     <DotNetVersion>$(DotNetVersionBand)-preview.1.21103.13</DotNetVersion>
     <MicrosoftAndroidVersion>11.0.200-ci.master.85</MicrosoftAndroidVersion>
     <MicrosoftiOSVersion>14.3.100-ci.main.1079</MicrosoftiOSVersion>
-    <!--Paths-->
+    <!-- Paths -->
+    <MauiToolchainDirectory>$([MSBuild]::EnsureTrailingSlash($(USERPROFILE)))maui-toolchain/</MauiToolchainDirectory>
+    <DotNetDirectory>$(MauiToolchainDirectory)dotnet/</DotNetDirectory>
+    <DotNetToolPath>$(DotNetDirectory)dotnet</DotNetToolPath>
     <DotNetPacksDirectory>$(DotNetDirectory)packs/</DotNetPacksDirectory>
     <DotNetSdkManifestsDirectory>$(DotNetDirectory)sdk-manifests/$(DotNetVersionBand)/</DotNetSdkManifestsDirectory>
     <DotNetSentinelPath>$(DotNetDirectory)sdk/$(DotNetVersion)/EnableWorkloadResolvers.sentinel</DotNetSentinelPath>
