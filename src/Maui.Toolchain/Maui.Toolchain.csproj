@@ -5,13 +5,14 @@
       _DownloadDotNetInstallScript;
       _InstallDotNet;
       _AcquireWorkloads;
+      _AcquireSdks;
     </_ProvisionDependsOn>
   </PropertyGroup>
   <Target Name="_Provision" BeforeTargets="Build" DependsOnTargets="$(_ProvisionDependsOn)">
   </Target>
   <Target Name="_DownloadDotNetInstallScript"
       Inputs="$(MSBuildAllProjects)"
-      Outputs="$(DotNetInstallScript)">
+      Outputs="$(DotNetInstallScriptPath)">
     <DownloadFile
         SourceUrl="$(DotNetInstallScriptUrl)"
         DestinationFolder="$(MauiToolchainDirectory)"
@@ -20,18 +21,27 @@
   </Target>
   <Target Name="_InstallDotNet"
       Inputs="$(MSBuildAllProjects)"
-      Outputs="$(DotNetSentinel)">
+      Outputs="$(DotNetSentinelPath)">
     <RemoveDir Directories="$(DotNetDirectory)" />
     <Exec Command="$(DotNetInstallCommand)" />
-    <Touch Files="$(DotNetSentinel)" AlwaysCreate="true" />
+    <Touch Files="$(DotNetSentinelPath)" AlwaysCreate="true" />
   </Target>
   <Target Name="_AcquireWorkloads"
-      Inputs="$(MSBuildAllProjects);../Maui.Dependencies/Maui.Dependencies.csproj"
-      Outputs="$(DotNetDirectory)workloads.stamp">
+      Inputs="$(MSBuildAllProjects);../Maui.Dependencies/Maui.Dependencies.Workloads.csproj"
+      Outputs="$(DotNetSdkManifestsDirectory).stamp">
     <Exec
-        Command="&quot;$(DotNetToolPath)&quot; build &quot;$(MSBuildThisFileDirectory)../Maui.Dependencies/Maui.Dependencies.csproj&quot; -bl:../../bin/workloads.binlog"
-        EnvironmentVariables="NUGET_PACKAGES=$(DotNetDirectory)packs"
+        Command="&quot;$(DotNetToolPath)&quot; build &quot;$(MSBuildThisFileDirectory)../Maui.Dependencies/Maui.Dependencies.Workloads.csproj&quot; -bl:../../bin/Maui.Dependencies.Workloads.binlog"
+        EnvironmentVariables="NUGET_PACKAGES=$(DotNetSdkManifestsDirectory)"
     />
-    <Touch Files="$(DotNetDirectory)workloads.stamp" AlwaysCreate="true" />
+    <Touch Files="$(DotNetSdkManifestsDirectory).stamp" AlwaysCreate="true" />
+  </Target>
+  <Target Name="_AcquireSdks"
+      Inputs="$(MSBuildAllProjects);../Maui.Dependencies/Maui.Dependencies.Sdks.csproj"
+      Outputs="$(DotNetPacksDirectory).stamp">
+    <Exec
+        Command="&quot;$(DotNetToolPath)&quot; build &quot;$(MSBuildThisFileDirectory)../Maui.Dependencies/Maui.Dependencies.Sdks.csproj&quot; -bl:../../bin/Maui.Dependencies.Sdks.binlog"
+        EnvironmentVariables="NUGET_PACKAGES=$(DotNetPacksDirectory)"
+    />
+    <Touch Files="$(DotNetPacksDirectory).stamp" AlwaysCreate="true" />
   </Target>
 </Project>

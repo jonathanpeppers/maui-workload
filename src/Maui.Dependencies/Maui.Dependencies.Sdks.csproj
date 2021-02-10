@@ -2,7 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageDownload Include="Microsoft.Android.Ref"            Version="[$(MicrosoftAndroidVersion)]" />
     <PackageDownload Include="Microsoft.Android.Sdk.win-x64"    Version="[$(MicrosoftAndroidVersion)]" Condition="$([MSBuild]::IsOSPlatform('windows'))" />
