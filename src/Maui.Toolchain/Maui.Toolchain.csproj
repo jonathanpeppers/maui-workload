@@ -4,6 +4,7 @@
     <_ProvisionDependsOn>
       _DownloadDotNetInstallScript;
       _InstallDotNet;
+      _AcquireWorkloads;
     </_ProvisionDependsOn>
   </PropertyGroup>
   <Target Name="_Provision" BeforeTargets="Build" DependsOnTargets="$(_ProvisionDependsOn)">
@@ -19,8 +20,18 @@
   </Target>
   <Target Name="_InstallDotNet"
       Inputs="$(MSBuildAllProjects)"
-      Outputs="$(DotNetDirectory).stamp">
+      Outputs="$(DotNetSentinel)">
+    <RemoveDir Directories="$(DotNetDirectory)" />
     <Exec Command="$(DotNetInstallCommand)" />
-    <Touch Files="$(DotNetDirectory).stamp" AlwaysCreate="true" />
+    <Touch Files="$(DotNetSentinel)" AlwaysCreate="true" />
+  </Target>
+  <Target Name="_AcquireWorkloads"
+      Inputs="$(MSBuildAllProjects);../Maui.Dependencies/Maui.Dependencies.csproj"
+      Outputs="$(DotNetDirectory)workloads.stamp">
+    <Exec
+        Command="&quot;$(DotNetToolPath)&quot; build &quot;$(MSBuildThisFileDirectory)../Maui.Dependencies/Maui.Dependencies.csproj&quot; -bl:../../bin/workloads.binlog"
+        EnvironmentVariables="NUGET_PACKAGES=$(DotNetDirectory)packs"
+    />
+    <Touch Files="$(DotNetDirectory)workloads.stamp" AlwaysCreate="true" />
   </Target>
 </Project>
