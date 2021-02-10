@@ -1,0 +1,21 @@
+<!--
+***********************************************************************************************
+AutoImport.props
+
+Contains MAUI default MSBuild item includes.
+
+WARNING:  This file is imported by all projects using
+          Microsoft.NET.Sdk. All Item includes in this file *MUST* be
+          hidden behind a property based condition.
+
+Spec for AutoImport.props:
+
+https://github.com/dotnet/designs/blob/4703666296f5e59964961464c25807c727282cae/accepted/2020/workloads/workload-resolvers.md#workload-props-files
+
+***********************************************************************************************
+-->
+<Project>
+  <ItemGroup Condition=" '$(EnableDefaultMauiItems)' == 'true' ">
+    <EmbeddedResource Include="**/*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+</Project>

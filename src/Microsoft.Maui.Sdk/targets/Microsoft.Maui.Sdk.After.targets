@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <EnableDefaultMauiItems Condition=" '$(EnableDefaultMauiItems)' == '' ">$(EnableDefaultItems)</EnableDefaultMauiItems>
+  </PropertyGroup>
+</Project>
