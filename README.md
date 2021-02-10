@@ -1,6 +1,7 @@
 # maui-workload
 
-Prototype of a [dotnet/maui][maui] "workload".
+Prototype of a [dotnet/maui][maui] "workload". Go to
+[dotnet/maui][maui] if you are looking for Maui itself.
 
 Explanation of projects:
 
@@ -9,11 +10,42 @@ Explanation of projects:
 * `Microsoft.NET.Workload.Maui` - configures Maui as a "workload"
 * `Microsoft.Maui.Sdk` - Maui's SDK pack
 
+This prototype, enables a project to be able to set `$(UseMaui)`:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-android</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+This automatically brings in:
+
+* `Microsoft.NET.Workload.Maui`
+* `Microsoft.Maui.Sdk`
+
+Where the SDK sets up stable Xamarin.Forms 4.8.0.1364 in a .NET 6 project.
+
+Special files:
+
+* `AutoImport.props` - defines the default includes (or wildcards) for
+  Maui projects will go. Note that this is imported by *all* .NET 6
+  project types -- *even non-mobile ones*.
+* `WorkloadManifest.json` - general .NET workload configuration
+* `WorkloadManifest.targets` - imports `Microsoft.Maui.Sdk` when
+  `$(UseMaui)` is `true`. Note that this is imported by *all* .NET 6
+  project types -- *even non-mobile ones*.
+
 ## Building
 
 To build this repo:
 
-    dotnet build
+```bash
+dotnet build
+```
 
 This creates the output structure:
 
@@ -37,11 +69,18 @@ This creates the output structure:
 
 Next, you can build the `samples` using the local `dotnet`:
 
-    ./bin/dotnet build samples/samples.sln
+```bash
+./bin/dotnet/dotnet build samples/samples.sln
+```
 
-_TODO: iOS is not working yet_
+*TODO: iOS is not working yet.*
 
 ## TODO: How to use IDEs?
+
+The Xamarin.Forms/MAUI team is probably quite accustomed to using
+IDEs. Since we have to completely bootstrap a `dotnet` installation in
+`bin/dotnet/`, it becomes *complicated* on how we actually use a local
+build in IDEs.
 
 I'm thinking we could make symbolic links:
 
