@@ -4,8 +4,11 @@
     <PackageVersion>0.1.0-alpha1</PackageVersion>
     <DotNetVersionBand>6.0.100</DotNetVersionBand>
     <DotNetVersion>$(DotNetVersionBand)-preview.1.21103.13</DotNetVersion>
+    <!-- After bumping $(DotNetVersion) find this version in bin/dotnet/sdk/*/dotnet.runtimeconfig.json -->
+    <DotNetRuntimeVersion>6.0.0-preview.1.21102.12</DotNetRuntimeVersion>
     <MicrosoftAndroidVersion>11.0.200-ci.master.85</MicrosoftAndroidVersion>
     <MicrosoftiOSVersion>14.3.100-ci.main.1079</MicrosoftiOSVersion>
+
     <!-- Paths -->
     <MauiOutputPath>$(MSBuildThisFileDirectory)bin/</MauiOutputPath>
     <DotNetDirectory>$(MauiOutputPath)dotnet/</DotNetDirectory>

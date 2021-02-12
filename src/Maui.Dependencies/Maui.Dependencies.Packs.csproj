@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- SDK packs-->
+    <PackageDownload Include="Microsoft.Android.Ref"            Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.Android.Sdk.win-x64"    Version="[$(MicrosoftAndroidVersion)]" Condition="$([MSBuild]::IsOSPlatform('windows'))" />
+    <PackageDownload Include="Microsoft.Android.Sdk.osx-x64"    Version="[$(MicrosoftAndroidVersion)]" Condition="$([MSBuild]::IsOSPlatform('osx'))" />
+    <PackageDownload Include="Microsoft.Android.Sdk.BundleTool" Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Ref"                Version="[$(MicrosoftiOSVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Sdk"                Version="[$(MicrosoftiOSVersion)]" />
+
+    <!-- Runtime packs -->
+    <PackageDownload Include="Microsoft.Android.Runtime.android.21-arm"    Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.Android.Runtime.android.21-arm64"  Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.Android.Runtime.android.21-x86"    Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.Android.Runtime.android.21-x64"    Version="[$(MicrosoftAndroidVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Runtime.ios-arm"               Version="[$(MicrosoftiOSVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Runtime.ios-arm64"             Version="[$(MicrosoftiOSVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Runtime.ios-x86"               Version="[$(MicrosoftiOSVersion)]" />
+    <PackageDownload Include="Microsoft.iOS.Runtime.ios-x64"               Version="[$(MicrosoftiOSVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.android-arm"   Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.android-arm64" Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.android-x86"   Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.android-x64"   Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.ios-arm"       Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.ios-arm64"     Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.ios-x86"       Version="[$(DotNetRuntimeVersion)]" />
+    <PackageDownload Include="Microsoft.NETCore.App.Runtime.ios-x64"       Version="[$(DotNetRuntimeVersion)]" />
+  </ItemGroup>
+</Project>
