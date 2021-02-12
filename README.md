@@ -46,6 +46,8 @@ For further details about .NET Workloads, see these .NET design docs:
 * [Workload Resolvers](https://github.com/dotnet/designs/blob/main/accepted/2020/workloads/workload-resolvers.md)
 * [Workload Manifests](https://github.com/dotnet/designs/pull/120/files)
 
+[maui]: https://github.com/dotnet/maui
+
 ## Building
 
 To build this repo:
@@ -80,19 +82,56 @@ Next, you can build the `samples` using the local `dotnet`:
 ./bin/dotnet/dotnet build samples/samples.sln
 ```
 
-## TODO: How to use IDEs?
+## Using IDEs
 
-The Xamarin.Forms/MAUI team is probably quite accustomed to using
-IDEs. Since we have to completely bootstrap a `dotnet` installation in
-`bin/dotnet/`, it becomes *complicated* on how we actually use a local
-build in IDEs.
+Currently, you can use Visual Studio 2019 16.9 Preview 4 on Windows
+(with the Xamarin workload) with a few manual steps.
 
-I'm thinking we could make symbolic links:
+### Step 1: Enable Workloads
 
-* `%ProgramFiles%\dotnet\` -> `.\bin\dotnet\`
-* `/usr/local/share/dotnet/` -> `./bin/dotnet/`
+This is the same setup instructions from the
+[net6-mobile-samples][net6-mobile-samples-ides].
 
-Would need to test if this would *actually* work, or if there is a way
-to tell IDEs where `dotnet` installs are located.
+Open an Administrator command prompt to enable the
+`EnableWorkloadResolver.sentinel` feature flag:
 
-[maui]: https://github.com/dotnet/maui
+```cmd
+> cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\SdkResolvers\Microsoft.DotNet.MSBuildSdkResolver"
+> echo > EnableWorkloadResolver.sentinel
+```
+
+> NOTE: your path to Visual Studio may vary, depending on where you
+> selected to install it. `Preview` is the default folder for Visual
+> Studio Preview versions.
+
+Restart Visual Studio after making this change.
+
+[net6-mobile-samples-ides]: https://github.com/dotnet/net6-mobile-samples#using-ides
+
+### Step 2: Use your local build-tree
+
+If you just opened `samples/samples.sln` yourself, it would use your
+system `dotnet` install such as `%ProgramFiles%\dotnet\` or
+`/usr/local/share/dotnet/`.
+
+Instead, use this script at a powershell prompt:
+
+```powershell
+.\scripts\dogfood.ps1
+```
+
+By default this launches `C:\Program Files (x86)\Microsoft Visual
+Studio\2019\Preview\Common7\IDE\devenv.exe` with environment variables
+configured to use the local `./bin/dotnet` folder.
+
+You can configure the path to VS with:
+
+```powershell
+.\scripts\dogfood.ps1 -vs "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe"
+```
+
+Or open a different `.sln` file:
+
+```powershell
+.\scripts\dogfood.ps1 -sln .\path\to\YourSolution.sln
+```
