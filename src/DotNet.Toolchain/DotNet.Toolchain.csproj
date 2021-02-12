@@ -5,7 +5,7 @@
       _DownloadDotNetInstallScript;
       _InstallDotNet;
       _AcquireWorkloads;
-      _AcquirePacks;
+      _AcquireSdks;
       _CreateWorkloadSentinel;
     </_ProvisionDependsOn>
   </PropertyGroup>
@@ -47,11 +47,11 @@
     <RemoveDir Directories="@(_WorkloadDirectoriesToDelete);$(DotNetSdkManifestsDirectory)Microsoft.Build.NoTargets" />
     <Touch Files="$(DotNetSdkManifestsDirectory).stamp" AlwaysCreate="true" />
   </Target>
-  <Target Name="_AcquirePacks"
-      Inputs="$(MSBuildAllProjects);../Maui.Dependencies/Maui.Dependencies.Packs.csproj"
+  <Target Name="_AcquireSdks"
+      Inputs="$(MSBuildAllProjects);../Maui.Dependencies/Maui.Dependencies.Sdks.csproj"
       Outputs="$(DotNetPacksDirectory).stamp">
     <Exec
-        Command="&quot;$(DotNetToolPath)&quot; build &quot;$(MSBuildThisFileDirectory)../Maui.Dependencies/Maui.Dependencies.Packs.csproj&quot; -bl:../../bin/Maui.Dependencies.Packs.binlog"
+        Command="&quot;$(DotNetToolPath)&quot; build &quot;$(MSBuildThisFileDirectory)../Maui.Dependencies/Maui.Dependencies.Sdks.csproj&quot; -bl:../../bin/Maui.Dependencies.Sdks.binlog"
         EnvironmentVariables="NUGET_PACKAGES=$(DotNetPacksDirectory)"
     />
     <RemoveDir Directories="$(DotNetPacksDirectory)Microsoft.Build.NoTargets" />
