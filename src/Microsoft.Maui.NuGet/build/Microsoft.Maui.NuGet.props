@@ -1,0 +1,5 @@
+<Project>
+  <ItemGroup Condition=" '$(EnableDefaultMauiItems)' == 'true' ">
+    <Foo Include="**/*.foo" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+</Project>

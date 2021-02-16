@@ -11,7 +11,7 @@
         Update="@(None)"
         CopyToOutputDirectory="PreserveNewest"
         Pack="true"
-        PackagePath=""
+        PackagePath="%(PackagePath)"
     />
   </ItemGroup>
 </Project>

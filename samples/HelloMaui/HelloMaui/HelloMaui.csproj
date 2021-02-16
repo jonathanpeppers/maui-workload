@@ -2,6 +2,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <UseMaui>true</UseMaui>
   </PropertyGroup>
+  <ItemGroup>
+    <Foo Remove="IgnoreMe/**/*.foo" />
+    <PackageReference Include="Microsoft.Maui.NuGet" Version="$(PackageVersion)" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1364" />
+  </ItemGroup>
 </Project>
