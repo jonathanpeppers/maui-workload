@@ -15,8 +15,54 @@ https://github.com/dotnet/designs/blob/4703666296f5e59964961464c25807c727282cae/
 ***********************************************************************************************
 -->
 <Project>
+
+  <!-- Removals -->
   <ItemGroup Condition=" '$(EnableDefaultMauiItems)' == 'true' ">
-    <!-- NOTE: we don't actually need this, but this is an example -->
-    <!-- <EmbeddedResource Include="**/*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" /> -->
+    <Compile
+        Condition=" '$(TargetPlatformIdentifier)' != 'android' and '$(AndroidProjectFolder)' != '' "
+        Remove="$(AndroidProjectFolder)**/*$(DefaultLanguageSourceExtension)"
+    />
+    <Compile
+        Condition=" '$(TargetPlatformIdentifier)' != 'ios' and '$(iOSProjectFolder)' != '' "
+        Remove="$(iOSProjectFolder)**/*$(DefaultLanguageSourceExtension)"
+    />
+  </ItemGroup>
+
+  <!-- Android -->
+  <ItemGroup Condition=" '$(EnableDefaultMauiItems)' == 'true' and '$(TargetPlatformIdentifier)' == 'android' and '$(MonoAndroidResourcePrefix)' != '' ">
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/*/*.xml" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/*/*.axml" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/*/*.png" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/*/*.jpg" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/*/*.gif" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/font/*.ttf" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/font/*.otf" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/font/*.ttc" />
+    <AndroidResource Include="$(MonoAndroidResourcePrefix)/raw/*" Exclude="$(MonoAndroidResourcePrefix)/raw/.*" />
+    <AndroidAsset Include="$(MonoAndroidAssetsPrefix)/**/*" Exclude="$(MonoAndroidAssetsPrefix)/**/.*/**" />
+  </ItemGroup>
+
+  <!-- iOS -->
+  <ItemGroup Condition=" '$(EnableDefaultMauiItems)' == 'true' and '$(TargetPlatformIdentifier)' == 'ios' and '$(iOSProjectFolder)' != '' ">
+    <None Include="$(iOSProjectFolder)Info.plist" LogicalName="Info.plist" />
+    <ImageAsset
+        Include="$(iOSProjectFolder)**/*.xcassets/**/*.png;$(iOSProjectFolder)**/*.xcassets/*/*.jpg;$(iOSProjectFolder)**/*.xcassets/**/*.pdf;$(iOSProjectFolder)**/*.xcassets/**/*.json"
+        Exclude="$(_DefaultiOSExcludes)"
+        Link="%(RecursiveDir)%(FileName)%(Extension)"
+        Visible="false"
+        IsDefaultItem="true"
+    />
+    <SceneKitAsset
+        Include="$(iOSProjectFolder)**/*.scnassets/*"
+        Exclude="$(_DefaultiOSExcludes)"
+        Link="%(RecursiveDir)%(FileName)%(Extension)"
+        IsDefaultItem="true"
+    />
+    <InterfaceDefinition
+        Include="$(iOSProjectFolder)**/*.storyboard;$(iOSProjectFolder)**/*.xib"
+        Exclude="$(_DefaultiOSExcludes)"
+        Link="%(RecursiveDir)%(FileName)%(Extension)"
+        IsDefaultItem="true"
+    />
   </ItemGroup>
 </Project>

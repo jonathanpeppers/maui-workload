@@ -1,5 +1,17 @@
 <Project>
   <PropertyGroup>
+    <!-- Android -->
+    <EnableDefaultAndroidItems>false</EnableDefaultAndroidItems>
+    <AndroidProjectFolder>Android/</AndroidProjectFolder>
+    <AndroidManifest>$(AndroidProjectFolder)AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>$(AndroidProjectFolder)Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>$(AndroidProjectFolder)Assets</MonoAndroidAssetsPrefix>
+    <!-- iOS -->
+    <EnableDefaultiOSItems>false</EnableDefaultiOSItems>
+    <iOSProjectFolder>iOS/</iOSProjectFolder>
+    <IPhoneResourcePrefix>$(iOSProjectFolder)Resources</IPhoneResourcePrefix>
+    <_DefaultiOSExcludes>$(iOSProjectFolder)/**/.*/**</_DefaultiOSExcludes>
+
     <AfterMicrosoftNETSdkTargets>$(AfterMicrosoftNETSdkTargets);$(MSBuildThisFileDirectory)../targets/Microsoft.Maui.Sdk.After.targets</AfterMicrosoftNETSdkTargets>
     <!--NOTE: the System.IO.Ports @(PackageReference) triggers this-->
     <NoWarn>$(NoWarn);XA4301</NoWarn>
