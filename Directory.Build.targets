@@ -1,6 +1,7 @@
 <Project>
   <!-- Settings for actual NuGet packages -->
   <PropertyGroup Condition=" '$(PackageId)' != '' ">
+    <PackageType>DotnetPlatform</PackageType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDependencyFile>false</GenerateDependencyFile>
     <PackageOutputPath>$(MauiOutputPath)</PackageOutputPath>
