@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31004.235
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMaui.Android", "HelloMaui\HelloMaui.Android\HelloMaui.Android.csproj", "{4BEA48A1-FDD3-4DAA-8991-AF1C9D4A9458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloMaui.Android", "HelloMaui\HelloMaui.Android\HelloMaui.Android.csproj", "{4BEA48A1-FDD3-4DAA-8991-AF1C9D4A9458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMaui.iOS", "HelloMaui\HelloMaui.iOS\HelloMaui.iOS.csproj", "{4C2B8DC5-0553-4D4B-B331-561297D14D67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloMaui.iOS", "HelloMaui\HelloMaui.iOS\HelloMaui.iOS.csproj", "{4C2B8DC5-0553-4D4B-B331-561297D14D67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMaui", "HelloMaui\HelloMaui\HelloMaui.csproj", "{4207A76C-0F1E-4F5F-B8A0-F95A488780CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloMaui", "HelloMaui\HelloMaui\HelloMaui.csproj", "{4207A76C-0F1E-4F5F-B8A0-F95A488780CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,9 +46,9 @@ Global
 		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
-		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
-		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
-		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|Any CPU.Deploy.0 = Release|iPhoneSimulator
+		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|iPhone.ActiveCfg = Release|iPhone
 		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|iPhone.Build.0 = Release|iPhone
 		{4C2B8DC5-0553-4D4B-B331-561297D14D67}.Release|iPhone.Deploy.0 = Release|iPhone
