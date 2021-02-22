@@ -84,10 +84,24 @@ Next, you can build the `samples` using the local `dotnet`:
 
 ## Using IDEs
 
+### Mac
+
+Using VS Mac 8.9 Preview you can simply go to:
+
+    Preferences | Projects | SDK Locations | .NET Core
+
+Then under the `.NET Core Command Line` setting set the full path
+to `./bin/dotnet/dotnet` within this repo.
+
+Note that you will only be able to *Build*, as debugging and the play
+button do not work currently in VS Mac.
+
+### Windows
+
 Currently, you can use Visual Studio 2019 16.9 Preview 4 on Windows
 (with the Xamarin workload) with a few manual steps.
 
-### Step 1: Enable Workloads
+#### Step 1: Enable Workloads
 
 This is the same setup instructions from the
 [net6-mobile-samples][net6-mobile-samples-ides].
