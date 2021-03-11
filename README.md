@@ -27,7 +27,7 @@ This automatically brings in:
 * `Microsoft.NET.Workload.Maui`
 * `Microsoft.Maui.Sdk`
 
-Where the SDK sets up stable Xamarin.Forms 4.8.0.1364 in a .NET 6 project.
+Where the SDK sets up Microsoft.Maui in a .NET 6 project.
 
 Special files:
 
@@ -83,7 +83,7 @@ Next, you can build the `samples` using the local `dotnet`:
 
 ## Using IDEs
 
-Currently, you can use Visual Studio 2019 16.9 Preview 4 on Windows
+Currently, you can use Visual Studio 2019 16.9 on Windows
 (with the Xamarin workload) with a few manual steps.
 
 ### Step 1: Enable Workloads
@@ -95,13 +95,23 @@ Open an Administrator command prompt to enable the
 `EnableWorkloadResolver.sentinel` feature flag:
 
 ```cmd
-> cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\SdkResolvers\Microsoft.DotNet.MSBuildSdkResolver"
+> cd "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\SdkResolvers\Microsoft.DotNet.MSBuildSdkResolver"
 > echo > EnableWorkloadResolver.sentinel
 ```
 
+Or in an Administrator `powershell` prompt:
+
+```powershell
+> cd "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\SdkResolvers\Microsoft.DotNet.MSBuildSdkResolver"
+> '' > EnableWorkloadResolver.sentinel
+```
+
 > NOTE: your path to Visual Studio may vary, depending on where you
-> selected to install it. `Preview` is the default folder for Visual
-> Studio Preview versions.
+> selected to install it. `Enterprise`, `Professional`, or `Community`
+> might be correct depending on the SKU you have installed.
+
+This command creates an empty file that enables .NET workload support.
+Restart Visual Studio after making this change.
 
 Restart Visual Studio after making this change.
 
@@ -120,13 +130,13 @@ Instead, use this script at a powershell prompt:
 ```
 
 By default this launches `C:\Program Files (x86)\Microsoft Visual
-Studio\2019\Preview\Common7\IDE\devenv.exe` with environment variables
-configured to use the local `./bin/dotnet` folder.
+Studio\2019\Enterprise\Common7\IDE\devenv.exe` with environment
+variables configured to use the local `./bin/dotnet` folder.
 
 You can configure the path to VS with:
 
 ```powershell
-.\scripts\dogfood.ps1 -vs "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe"
+.\scripts\dogfood.ps1 -vs "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"
 ```
 
 Or open a different `.sln` file:

@@ -10,7 +10,7 @@
 
   .PARAMETER vs
   The path to Visual Studio, defaults to:
-  "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\devenv.exe".
+  "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe".
 
   .PARAMETER sln
   The path to a .sln or .project file, defaults to ".\samples\samples.sln".
@@ -26,14 +26,14 @@
   PS> .\scripts\dogfood.ps1
 
   .EXAMPLE
-  PS> .\scripts\dogfood.ps1 -vs "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe"
+  PS> .\scripts\dogfood.ps1 -vs "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"
 
   .EXAMPLE
   PS> .\scripts\dogfood.ps1 -sln .\path\to\MySolution.sln
 #>
 
 param(
-  [string]$vs = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Preview\Common7\IDE\devenv.exe",
+  [string]$vs = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe",
   [string]$sln,
   [switch]$modify
 )
