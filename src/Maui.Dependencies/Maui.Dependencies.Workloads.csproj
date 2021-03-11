@@ -4,10 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageDownload Include="Microsoft.NET.Workload.Android" Version="[$(MicrosoftAndroidVersion)]" />
-    <!--
-      TODO: missing from feed
-      For now I made my own Microsoft.NET.Workload.iOS in this repo.
-    -->
-    <!-- <PackageDownload Include="Microsoft.NET.Workload.iOS" Version="[$(MicrosoftiOSVersion)]" /> -->
+    <PackageDownload Include="Microsoft.NET.Workload.iOS" Version="[$(MicrosoftiOSVersion)]" />
   </ItemGroup>
 </Project>

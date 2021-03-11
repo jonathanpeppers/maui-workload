@@ -3,9 +3,9 @@
     <!-- Versions -->
     <PackageVersion>0.1.0-alpha1</PackageVersion>
     <DotNetVersionBand>6.0.100</DotNetVersionBand>
-    <DotNetVersion>$(DotNetVersionBand)-preview.1.21103.13</DotNetVersion>
-    <MicrosoftAndroidVersion>11.0.200-ci.master.85</MicrosoftAndroidVersion>
-    <MicrosoftiOSVersion>14.3.100-ci.main.1079</MicrosoftiOSVersion>
+    <DotNetVersion>$(DotNetVersionBand)-preview.2.21155.3</DotNetVersion>
+    <MicrosoftAndroidVersion>11.0.200-ci.main.148</MicrosoftAndroidVersion>
+    <MicrosoftiOSVersion>14.4.100-ci.main.1192</MicrosoftiOSVersion>
     <!-- Paths -->
     <MauiOutputPath>$(MSBuildThisFileDirectory)bin/</MauiOutputPath>
     <DotNetDirectory>$(MauiOutputPath)dotnet/</DotNetDirectory>
