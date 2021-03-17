@@ -5,6 +5,7 @@
     <DotNetVersionBand>6.0.100</DotNetVersionBand>
     <DotNetVersion>$(DotNetVersionBand)-preview.2.21155.3</DotNetVersion>
     <MicrosoftAndroidVersion>11.0.200-ci.main.148</MicrosoftAndroidVersion>
+    <MicrosoftMacCatalystVersion>14.3.100-ci.main.337</MicrosoftMacCatalystVersion>
     <MicrosoftiOSVersion>14.4.100-ci.main.1192</MicrosoftiOSVersion>
     <!-- Paths -->
     <MauiOutputPath>$(MSBuildThisFileDirectory)bin/</MauiOutputPath>
