@@ -8,7 +8,7 @@
                FontSize="32"
                TextColor="Black" 
                HorizontalOptions="CenterAndExpand" />
-        <Label Text=".NET Multi-platform App UI"
+        <Label x:Name="label"
                FontSize="24"
                TextColor="Black" 
                HorizontalOptions="CenterAndExpand" />

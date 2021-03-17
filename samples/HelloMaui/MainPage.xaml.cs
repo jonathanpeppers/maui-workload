@@ -11,6 +11,8 @@ namespace HelloMaui
 		public MainPage()
 		{
 			InitializeComponent();
+
+			label.Text = HelloLibrary.Strings.Hello;
 		}
 
 		public IView View { get => (IView)Content; set => Content = (View)value; }

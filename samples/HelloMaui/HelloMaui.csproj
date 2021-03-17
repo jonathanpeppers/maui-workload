@@ -10,6 +10,9 @@
     <UseMaui>true</UseMaui>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelloLibrary\HelloLibrary.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <SharedImage Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" IsAppIcon="true" />
   </ItemGroup>
 </Project>
