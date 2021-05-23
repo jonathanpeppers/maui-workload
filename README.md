@@ -1,5 +1,7 @@
 # maui-workload
 
+> NOTE: now implemented at [dotnet/maui#603](https://github.com/dotnet/maui/pull/603)
+
 Prototype of a [dotnet/maui][maui] "workload". Go to
 [dotnet/maui][maui] if you are looking for Maui itself.
 
